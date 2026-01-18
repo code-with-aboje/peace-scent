@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - PEACE-SCENT</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #000;
+            background: #f8f8f8;
+        }
+
+        header {
+            background: #000;
+            color: white;
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            letter-spacing: 3px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            letter-spacing: 1px;
+        }
+
+        .nav-links a:hover {
+            color: #ccc;
+        }
+
+        .page-hero {
+            background: linear-gradient(135deg, #000 0%, #333 100%);
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .page-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 300;
+            letter-spacing: 5px;
+            margin-bottom: 1rem;
+        }
+
+        .page-hero p {
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .about-section {
+            background: white;
+            padding: 4rem 3rem;
+            margin-bottom: 3rem;
+            border: 1px solid #e0e0e0;
+        }
+
+        .about-section h2 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            letter-spacing: 3px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #333;
+        }
+
+        .about-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .value-card {
+            background: white;
+            padding: 2.5rem;
+            border: 1px solid #e0e0e0;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .value-card:hover {
+            border-color: #000;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .value-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .value-card h3 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+        }
+
+        .value-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .stats-section {
+            background: #000;
+            color: white;
+            padding: 4rem 2rem;
+            margin: 3rem 0;
+        }
+
+        .stats-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 3rem;
+            font-weight: 300;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            opacity: 0.9;
+        }
+
+        footer {
+            background: #000;
+            color: white;
+            padding: 3rem 2rem 1.5rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #333;
+            color: #999;
+        }
+
+        @media (max-width: 768px) {
+            .page-hero h1 {
+                font-size: 2rem;
+            }
+
+            .about-section {
+                padding: 2rem 1.5rem;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">PEACE-SCENT</div>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+               
+                <li><a href="../service/index.html">Services</a></li>
+                <li><a href="../contact/index.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="page-hero">
+        <h1>ABOUT US</h1>
+        <p>Crafting Luxury, One Scent at a Time</p>
+    </section>
+
+    <div class="container">
+        <div class="about-section">
+            <h2>OUR STORY</h2>
+            <div class="about-content">
+                <p>
+                    Founded with a passion for excellence and a vision to bring the world's finest fragrances to discerning customers, PEACE-SCENT has become synonymous with luxury and sophistication. Our journey began with a simple belief: that the perfect scent has the power to transform moments into memories.
+                </p>
+                <p>
+                    We curate an exclusive collection of premium perfumes from the world's most prestigious houses, including Chanel, Dior, Tom Ford, and many more. Each fragrance in our collection is carefully selected to ensure authenticity, quality, and that ineffable magic that makes a scent truly unforgettable.
+                </p>
+                <p>
+                    At PEACE-SCENT, we understand that choosing a fragrance is a deeply personal experience. Our commitment goes beyond simply selling perfumes – we aim to guide you on a sensory journey, helping you discover scents that resonate with your personality, style, and aspirations.
+                </p>
+            </div>
+        </div>
+
+        <div class="values-grid">
+            <div class="value-card">
+                <div class="value-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="54" height="54" viewBox="0 0 24 24"><title>Star SVG Icon</title><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.074 2.633c.32-.844 1.531-.844 1.852 0l2.07 5.734a.99.99 0 0 0 .926.633h5.087c.94 0 1.35 1.17.611 1.743L18 14a.968.968 0 0 0-.322 1.092L19 20.695c.322.9-.72 1.673-1.508 1.119l-4.917-3.12a1 1 0 0 0-1.15 0l-4.917 3.12c-.787.554-1.83-.22-1.508-1.119l1.322-5.603A.968.968 0 0 0 6 14l-3.62-3.257C1.64 10.17 2.052 9 2.99 9h5.087a.989.989 0 0 0 .926-.633z"/></svg>
+                </div>
+                <h3>AUTHENTICITY</h3>
+                <p>Every product in our collection is 100% genuine, sourced directly from authorized distributors and luxury brands.</p>
+            </div>
+
+            <div class="value-card">
+                <div class="value-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="54" height="54" viewBox="0 0 24 24"><title>Diamond-outline SVG Icon</title><path fill="currentColor" fill-rule="evenodd" d="M6.535 3.25a1.75 1.75 0 0 0-1.456.78L1.49 9.412c-.219.33-.245.752-.068 1.106A32.952 32.952 0 0 0 9.45 20.8l1.75 1.501a1.23 1.23 0 0 0 1.601 0l1.75-1.5a32.951 32.951 0 0 0 8.029-10.283c.177-.354.15-.776-.069-1.106L18.92 4.03a1.75 1.75 0 0 0-1.455-.779zm-.208 1.611a.25.25 0 0 1 .208-.111h2.34L6.96 9.346a1.75 1.75 0 0 0-.1.326a69.284 69.284 0 0 1-2.11-.19l-1.405-.147zM3.28 10.836a31.45 31.45 0 0 0 6.994 8.695l-3.125-8.334a70.78 70.78 0 0 1-2.554-.222zm5.506.454L12 19.864l3.215-8.574a70.793 70.793 0 0 1-6.43 0m8.067-.093l-3.125 8.334a31.45 31.45 0 0 0 6.994-8.695l-1.315.139c-.85.089-1.701.163-2.554.222m3.803-1.862l-1.406.148a69.27 69.27 0 0 1-2.11.19a1.747 1.747 0 0 0-.099-.327L15.125 4.75h2.34a.25.25 0 0 1 .208.111zm-5.063.435c-2.393.124-4.79.124-7.184 0L10.5 4.75h3z" clip-rule="evenodd"/></svg>
+                </div>
+                <h3>LUXURY</h3>
+                <p>We offer only the finest fragrances from the world's most prestigious perfume houses, ensuring unmatched quality.</p>
+            </div>
+
+            <div class="value-card">
+                <div class="value-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64"><title>Handshake SVG Icon</title><path fill="currentColor" d="M49.725 16.293c-.027.27-.043.578-.05.912l-3.834 1.831c-.537-.088-3.2.067-7.172-1.893c-1.007-.497-1.991-.761-2.936-.761a5.41 5.41 0 0 0-2.459.595c-1.003-.217-2.448-.773-3.293-.771c-1.912.01-6.259 1.567-7.463 1.7c-1.178.129-2.391.453-3.612.969c-2.219-.646-5.001-1.701-6.491-2.284L2 9v24.41l7.654 3.642c.111-.13.238-.33.376-.578l.237.11c.116.3.244.599.384.896c-.84 1.414-.94 3.007-.269 4.392c.575 1.185 1.646 2.017 2.839 2.25c.065.738.313 1.452.731 2.071c.75 1.107 1.942 1.768 3.191 1.768c.113 0 .226-.005.338-.018c.178.481.439.929.778 1.317c.754.867 1.81 1.364 2.896 1.364c.08 0 .158-.002.237-.008c.138.524.373 1.02.701 1.462c.755 1.02 1.92 1.627 3.118 1.627c.744 0 1.455-.228 2.082-.655c1.212.778 2.266 1.325 3.201 1.661c.469.191.957.289 1.455.289c1.178 0 2.321-.55 3.137-1.512c.303-.358.549-.758.729-1.186a3.78 3.78 0 0 0 1.087.162c1.252 0 2.439-.613 3.26-1.685a4.715 4.715 0 0 0 .83-1.711c.086.006.171.009.256.009c1.447 0 2.832-.849 3.611-2.216a4.735 4.735 0 0 0 .629-2.336c1.43-.213 2.689-1.23 3.302-2.713c.604-1.461.44-3.073-.403-4.417l3.895-2.195c.1.342.198.657.293.913L62 31.098V10.642zm-.001 3.037c.062 1.082.175 2.305.321 3.582c-.8-1.344-1.81-1.957-3.064-2.262zm-5.228 23.756c-2.148-.739-6.619-5.995-6.619-5.995h.088c.455-.032 1.438-.511 2.541-.282c-1.732-1.488-3.637-.229-4.934-1c.301.965 1.748 1.269 2.119 1.281l4.284 4.982c1.94 2.255.589 5.045-1.356 5.489c-1.305-.635-4.99-5.018-4.99-5.018c.126-.023.873-.257 1.634-.157c-1.757-1.314-3.749-.174-4.931-.999c.67 1.655 2.877 1.231 3.108 1.191l2.292 2.926c1.834 2.34.393 5.043-1.555 5.409c-1.727-.607-2.848-2.767-2.848-2.767c.174-.028.756-.287 1.584-.167c-1.473-1.291-3.188-.12-4.219-.855c.637 1.388 2.225 1.072 2.314 1.062c1.588 2.501-.059 5.109-2.027 5.187h-.002l-.002.001c-1.182-.205-2.42-1.15-3.818-2.12c.48-.532.904-1.467.904-1.467c1.404-2.542-.418-4.79-2.299-4.597c1.526.417 2.67 2.365 1.479 4.528l-.523.88c-.568 1.035-1.455 1.66-2.107 1.583c-1.004-.122-2.419-1.588-1.824-3.656c.23-.21 2.448-3.603 2.448-3.603c1.525-2.456-.187-4.807-2.073-4.727c1.502.507 2.555 2.521 1.26 4.611l-1.803 2.811c-.615.994-1.411 1.557-2.17 1.453c-1.178-.16-2.004-1.597-1.815-3.08c-.01.009 1.298-1.454 1.298-1.454c1.738-2.271.25-4.807-1.633-4.94c1.447.674 2.309 2.798.832 4.731l-.638.782c-.7.918-1.543 1.385-2.281 1.201c-1.288-.323-1.958-2.733-1.349-3.39c.479-.517 1.824-2.154 1.824-2.154c1.737-2.272.251-4.807-1.634-4.942c1.448.676 2.31 2.8.833 4.734l-.638.78c-.704.926-1.55 1.391-2.293 1.202c-1.548-.392-2.321-2.782-.84-4.722c0 0-.503-1.598-.73-2.281l-.746-.346c1.749-4.075 4.391-13.069 4.513-16.057c1.288.459 4.688 1.437 5.049 1.439l-.002.002c3.66-1.15 7.496-1.023 9.246-1.699c.567-.216 1.695-.23 2.891.454c-.747.655-1.453 1.435-2.186 2.162c-1.752 1.739-8.266 4.451-7.01 7.303c1.084 2.461 4.137 4.979 9.258 1.026l2.88-.396l4.479 2.21l5.74 5.895c2.047 2.098.888 4.946-1.003 5.556m1.44-6.495c-.658-1.23-2.709-3.247-4.645-4.896l-.012-.012c.893.036 1.83-1.402 3.041-1.513c-.846-.646-2.248.1-2.685.218c-2.409.648-6.153-2.383-6.153-2.383l-3.582.516s-4.26 5.199-7.849.916c-1.949-2.326 5.114-5.364 6.854-7.093c2.229-2.215 4.215-4.925 7.882-3.079c3.046 1.536 4.246 1.441 8.332 2.152c1.218.213 2.062.771 2.967 1.86c.426 3.584 1.115 7.559 1.776 10.325c-.341.287-3.264 2.253-5.926 2.989"/></svg>
+                </div>
+                <h3>SERVICE</h3>
+                <p>Our dedicated team provides personalized assistance to help you find the perfect scent for every occasion.</p>
+            </div>
+
+            <div class="value-card">
+                <div class="value-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 16 16"><title>Globe2 SVG Icon</title><path fill="currentColor" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m7.5-6.923c-.67.204-1.335.82-1.887 1.855q-.215.403-.395.872c.705.157 1.472.257 2.282.287zM4.249 3.539q.214-.577.481-1.078a7 7 0 0 1 .597-.933A7 7 0 0 0 3.051 3.05q.544.277 1.198.49zM3.509 7.5c.036-1.07.188-2.087.436-3.008a9 9 0 0 1-1.565-.667A6.96 6.96 0 0 0 1.018 7.5zm1.4-2.741a12.3 12.3 0 0 0-.4 2.741H7.5V5.091c-.91-.03-1.783-.145-2.591-.332M8.5 5.09V7.5h2.99a12.3 12.3 0 0 0-.399-2.741c-.808.187-1.681.301-2.591.332zM4.51 8.5c.035.987.176 1.914.399 2.741A13.6 13.6 0 0 1 7.5 10.91V8.5zm3.99 0v2.409c.91.03 1.783.145 2.591.332c.223-.827.364-1.754.4-2.741zm-3.282 3.696q.18.469.395.872c.552 1.035 1.218 1.65 1.887 1.855V11.91c-.81.03-1.577.13-2.282.287zm.11 2.276a7 7 0 0 1-.598-.933a9 9 0 0 1-.481-1.079a8.4 8.4 0 0 0-1.198.49a7 7 0 0 0 2.276 1.522zm-1.383-2.964A13.4 13.4 0 0 1 3.508 8.5h-2.49a6.96 6.96 0 0 0 1.362 3.675c.47-.258.995-.482 1.565-.667m6.728 2.964a7 7 0 0 0 2.275-1.521a8.4 8.4 0 0 0-1.197-.49a9 9 0 0 1-.481 1.078a7 7 0 0 1-.597.933M8.5 11.909v3.014c.67-.204 1.335-.82 1.887-1.855q.216-.403.395-.872A12.6 12.6 0 0 0 8.5 11.91zm3.555-.401c.57.185 1.095.409 1.565.667A6.96 6.96 0 0 0 14.982 8.5h-2.49a13.4 13.4 0 0 1-.437 3.008M14.982 7.5a6.96 6.96 0 0 0-1.362-3.675c-.47.258-.995.482-1.565.667c.248.92.4 1.938.437 3.008zM11.27 2.461q.266.502.482 1.078a8.4 8.4 0 0 0 1.196-.49a7 7 0 0 0-2.275-1.52c.218.283.418.597.597.932m-.488 1.343a8 8 0 0 0-.395-.872C9.835 1.897 9.17 1.282 8.5 1.077V4.09c.81-.03 1.577-.13 2.282-.287z"/></svg>
+                </div>
+                <h3>GLOBAL REACH</h3>
+                <p>We bring the world's finest fragrances to your doorstep with secure, reliable delivery services.</p>
+            </div>
+        </div>
+    </div>
+
+    <section class="stats-section">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h3>500+</h3>
+                <p>Premium Fragrances</p>
+            </div>
+            <div class="stat-item">
+                <h3>10,000+</h3>
+                <p>Happy Customers</p>
+            </div>
+            <div class="stat-item">
+                <h3>50+</h3>
+                <p>Luxury Brands</p>
+            </div>
+            <div class="stat-item">
+                <h3>100%</h3>
+                <p>Authentic Products</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>PEACE-SCENT</h3>
+                <p>Your destination for luxury fragrances</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                   
+                    <li><a href="../service/index.html">Services</a></li>
+                    <li><a href="../contact/index.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 PEACE-SCENT. All rights reserved.</p>
+        </div>
+    </footer>
+    <br>
+</body>
+</html>

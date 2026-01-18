@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Account - PEACE-SCENT</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">PEACE-SCENT</div>
+            <button class="menu-toggle" onclick="toggleMenu()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 12h18M3 6h18M3 18h18"/>
+                </svg>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#account">My Account</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#" onclick="handleLogout(event)">Logout</a></li>
+                <li class="cart-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><title>Cart</title><g fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2"><path d="M5 7h13.79a2 2 0 0 1 1.99 2.199l-.6 6A2 2 0 0 1 18.19 17H8.64a2 2 0 0 1-1.962-1.608z"/><path stroke-linecap="round" d="m5 7l-.81-3.243A1 1 0 0 0 3.22 3H2m6 18h2m6 0h2"/></g></svg>
+                    <span class="cart-count">3</span>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="account-header">
+            <h1>Welcome Back!</h1>
+            <p class="user-email" id="userEmail">Loading...</p>
+        </div>
+
+        <div class="account-grid">
+            <aside class="account-sidebar">
+                <h2>My Account</h2>
+                <ul class="sidebar-menu">
+                    <li><a href="#" class="active">Shopping Cart</a></li>
+                    <li><a href="#">Order History</a></li>
+                    <li><a href="#">Wishlist</a></li>
+                    <li><a href="#">Profile Settings</a></li>
+                    <li><a href="#">Addresses</a></li>
+                </ul>
+            </aside>
+
+            <div class="cart-section">
+                <h2>Shopping Cart (3 items)</h2>
+                <div id="cartContent">
+                    <div class="cart-items">
+                        <div class="cart-item">
+                            <div class="cart-item-image">
+                                <img src="https://via.placeholder.com/100x100/f8f8f8/666?text=Chanel" alt="Bleu de Chanel">
+                            </div>
+                            <div class="cart-item-details">
+                                <div class="cart-item-brand">Chanel</div>
+                                <div class="cart-item-name">Bleu de Chanel</div>
+                                <div class="cart-item-size">100ml | Eau de Parfum</div>
+                                <div class="quantity-controls">
+                                    <button class="quantity-btn">-</button>
+                                    <span class="quantity-display">1</span>
+                                    <button class="quantity-btn">+</button>
+                                </div>
+                            </div>
+                            <div class="cart-item-actions">
+                                <div class="cart-item-price">₦45,000</div>
+                                <button class="remove-item">Remove</button>
+                            </div>
+                        </div>
+
+                        <div class="cart-item">
+                            <div class="cart-item-image">
+                                <img src="https://via.placeholder.com/100x100/f8f8f8/666?text=Dior" alt="Sauvage">
+                            </div>
+                            <div class="cart-item-details">
+                                <div class="cart-item-brand">Dior</div>
+                                <div class="cart-item-name">Sauvage</div>
+                                <div class="cart-item-size">100ml | Eau de Toilette</div>
+                                <div class="quantity-controls">
+                                    <button class="quantity-btn">-</button>
+                                    <span class="quantity-display">2</span>
+                                    <button class="quantity-btn">+</button>
+                                </div>
+                            </div>
+                            <div class="cart-item-actions">
+                                <div class="cart-item-price">₦84,000</div>
+                                <button class="remove-item">Remove</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cart-summary">
+                        <div class="summary-row">
+                            <span>Subtotal:</span>
+                            <span>₦129,000</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Shipping:</span>
+                            <span>₦2,000</span>
+                        </div>
+                        <div class="summary-row total">
+                            <span>Total:</span>
+                            <span>₦131,000</span>
+                        </div>
+                        <button class="checkout-btn">PROCEED TO CHECKOUT</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="products-section">
+            <h2 class="section-title">Recommended For You</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://via.placeholder.com/280x350/f8f8f8/666?text=Tom+Ford" alt="Black Orchid">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-brand">Tom Ford</div>
+                        <h3 class="product-name">Black Orchid</h3>
+                        <p class="product-size">100ml | Eau de Parfum</p>
+                        <div class="product-pricing">
+                            <span class="product-price">₦85,000</span>
+                        </div>
+                        <button class="add-to-cart">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="discount-badge">-20%</div>
+                    <div class="product-image">
+                        <img src="https://via.placeholder.com/280x350/f8f8f8/666?text=Versace" alt="Eros">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-brand">Versace</div>
+                        <h3 class="product-name">Eros</h3>
+                        <p class="product-size">100ml | Eau de Toilette</p>
+                        <div class="product-pricing">
+                            <span class="product-price">₦40,000</span>
+                            <span class="product-price-old">₦50,000</span>
+                        </div>
+                        <button class="add-to-cart">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="discount-badge">-15%</div>
+                    <div class="product-image">
+                        <img src="https://via.placeholder.com/280x350/f8f8f8/666?text=Gucci" alt="Guilty">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-brand">Gucci</div>
+                        <h3 class="product-name">Guilty</h3>
+                        <p class="product-size">100ml | Eau de Parfum</p>
+                        <div class="product-pricing">
+                            <span class="product-price">₦51,000</span>
+                            <span class="product-price-old">₦60,000</span>
+                        </div>
+                        <button class="add-to-cart">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://via.placeholder.com/280x350/f8f8f8/666?text=Prada" alt="L'Homme">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-brand">Prada</div>
+                        <h3 class="product-name">L'Homme</h3>
+                        <p class="product-size">100ml | Eau de Toilette</p>
+                        <div class="product-pricing">
+                            <span class="product-price">₦58,000</span>
+                        </div>
+                        <button class="add-to-cart">ADD TO CART</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>ESSENCE</h3>
+                <p>Your destination for luxury fragrances</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Shipping Info</a></li>
+                    <li><a href="#">Returns</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Categories</h3>
+                <ul>
+                    <li><a href="#">Men's Fragrances</a></li>
+                    <li><a href="#">Women's Fragrances</a></li>
+                    <li><a href="#">Unisex</a></li>
+                    <li><a href="#">Gift Sets</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Customer Service</h3>
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Track Order</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 PEACE-SCENT. All rights reserved.</p>
+        </div>
+    </footer>
+    <script type="module" src="index.js"></script>
+</body>
+</html>
