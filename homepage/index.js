@@ -95,9 +95,6 @@ document.querySelectorAll('.nav-links a').forEach(link => {
 // Make functions globally accessible
 window.toggleMenu = toggleMenu;
 window.handleLogout = handleLogout;
-
-
-
 // Getting dom elements
 const cartItemsDiv = document.getElementById("cartItemsDiv");
 let cartAmount = document.getElementById("cartAmount");
@@ -136,34 +133,89 @@ function saveCartToStorage() {
 
 // Create shipping location selector
 function createShippingSelector() {
-    const cartSection = document.querySelector('.cart-section');
+    const cartContent = document.getElementById('cartContent');
     const cartSummary = document.querySelector('.cart-summary');
+    
+    if (!cartContent || !cartSummary) {
+        console.error('Cart elements not found');
+        return;
+    }
+    
+    // Check if shipping selector already exists
+    if (document.querySelector('.shipping-selector')) {
+        return;
+    }
     
     const shippingSelector = document.createElement('div');
     shippingSelector.className = 'shipping-selector';
+    shippingSelector.style.cssText = `
+        background: #f8f8f8;
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        border: 1px solid #e0e0e0;
+    `;
+    
     shippingSelector.innerHTML = `
-        <h3 style="margin-bottom: 1rem; font-weight: 500;">Delivery Location</h3>
-        <label style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem; cursor: pointer;">
-            <input type="radio" name="location" value="4000" ${shipping_price === 4000 ? 'checked' : ''}>
-            <span>Within Warri (₦4,000)</span>
+        <h3 style="margin-bottom: 1rem; font-weight: 500; font-size: 1.1rem; letter-spacing: 1px;">Delivery Location</h3>
+        <label style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem; cursor: pointer; padding: 0.75rem; background: white; border: 2px solid #e0e0e0; transition: all 0.3s;">
+            <input type="radio" name="location" value="4000" ${shipping_price === 4000 ? 'checked' : ''} style="width: 18px; height: 18px; cursor: pointer; accent-color: #000;">
+            <span style="font-weight: ${shipping_price === 4000 ? '600' : 'normal'};">Within Warri (₦4,000)</span>
         </label>
-        <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
-            <input type="radio" name="location" value="5000" ${shipping_price === 5000 ? 'checked' : ''}>
-            <span>Outside Warri (₦5,000)</span>
+        <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer; padding: 0.75rem; background: white; border: 2px solid #e0e0e0; transition: all 0.3s;">
+            <input type="radio" name="location" value="5000" ${shipping_price === 5000 ? 'checked' : ''} style="width: 18px; height: 18px; cursor: pointer; accent-color: #000;">
+            <span style="font-weight: ${shipping_price === 5000 ? '600' : 'normal'};">Outside Warri (₦5,000)</span>
         </label>
     `;
     
-    cartSection.insertBefore(shippingSelector, cartSummary);
+    cartContent.insertBefore(shippingSelector, cartSummary);
     
     // Add event listeners to radio buttons
     const radioButtons = shippingSelector.querySelectorAll('input[name="location"]');
-    radioButtons.forEach(radio => {
+    const labels = shippingSelector.querySelectorAll('label');
+    
+    radioButtons.forEach((radio, index) => {
         radio.addEventListener('change', (e) => {
             shipping_price = parseInt(e.target.value);
+            
+            // Update label styles
+            labels.forEach((label, i) => {
+                const span = label.querySelector('span');
+                if (i === index) {
+                    label.style.borderColor = '#000';
+                    label.style.background = '#f8f8f8';
+                    span.style.fontWeight = '600';
+                } else {
+                    label.style.borderColor = '#e0e0e0';
+                    label.style.background = 'white';
+                    span.style.fontWeight = 'normal';
+                }
+            });
+            
             updateShippingDisplay();
             updateTotalCount();
             saveCartToStorage();
         });
+        
+        // Add hover effect
+        labels[index].addEventListener('mouseenter', () => {
+            if (!radio.checked) {
+                labels[index].style.borderColor = '#000';
+            }
+        });
+        
+        labels[index].addEventListener('mouseleave', () => {
+            if (!radio.checked) {
+                labels[index].style.borderColor = '#e0e0e0';
+            }
+        });
+    });
+    
+    // Set initial border for checked option
+    labels.forEach((label, i) => {
+        if (radioButtons[i].checked) {
+            label.style.borderColor = '#000';
+            label.style.background = '#f8f8f8';
+        }
     });
 }
 
@@ -175,19 +227,10 @@ function updateShippingDisplay() {
 // Create products
 function createProducts() {
     const products = [
-        { id: 1, name: 'Black Orchid', brand: 'Tom Ford', price: 7000, image: '../Assets/7k.jpeg' },
-        { id: 2, name: 'Sauvage', brand: 'Dior', price: 7000, image: '../Assets/7k(2).jpeg' },
-        { id: 3, name: 'Bleu de Chanel', brand: 'Chanel', price: 7000, image: '../Assets/7k(3).jpeg' },
-        { id: 4, name: 'La Vie Est Belle', brand: 'Lancôme', price: 25000, image: '../Assets/25k.jpeg' },
-        { id: 5, name: 'La Vie Est Belle', brand: 'Lancôme', price: 35000, image: '../Assets/35k.jpeg' },
-        { id: 6, name: 'La Vie Est Belle', brand: 'Lancôme', price: 30000, image: '../Assets/30k.jpeg' },
-        { id: 7, name: 'La Vie Est Belle', brand: 'Lancôme', price: 6000, image: '../Assets/6k.jpeg' },
-        { id: 8, name: 'La Vie Est Belle', brand: 'Lancôme', price: 4000, image: '../Assets/4k.jpeg' },
-        { id: 9, name: 'La Vie Est Belle', brand: 'Lancôme', price: 2000, image: '../Assets/2k.jpeg' },
-        { id: 10, name: 'La Vie Est Belle', brand: 'Lancôme', price: 80000, image: '../Assets/80k.jpeg' },
-        { id: 11, name: 'La Vie Est Belle', brand: 'Lancôme', price: 39000, image: '../Assets/39k.jpeg' },
-        { id: 12, name: 'La Vie Est Belle', brand: 'Lancôme', price: 8000, image: '../Assets/8k.jpeg' },
-        { id: 13, name: 'La Vie Est Belle', brand: 'Lancôme', price: 47000, image: '../Assets/47k.jpeg' }
+        { id: 1, name: 'Black Orchid', brand: 'Tom Ford', price: 85000, image: '../Assets/pef1.png' },
+        { id: 2, name: 'Sauvage', brand: 'Dior', price: 75000, image: '../Assets/pef1.png' },
+        { id: 3, name: 'Bleu de Chanel', brand: 'Chanel', price: 80000, image: '../Assets/pef1.png' },
+        { id: 4, name: 'La Vie Est Belle', brand: 'Lancôme', price: 70000, image: '../Assets/pef1.png' }
     ];
 
     products.forEach(product => {
@@ -405,7 +448,7 @@ function proceedToCheckout() {
     }
     
     // WhatsApp number (replace with your actual WhatsApp number)
-    const whatsappNumber = '2349117967019'; // Format: country code + number (no + or spaces)
+    const whatsappNumber = '2348012345678'; // Format: country code + number (no + or spaces)
     
     // Build the message
     let message = '🛍️ *NEW ORDER FROM PEACE-SCENT*\n\n';
@@ -463,3 +506,5 @@ document.addEventListener('DOMContentLoaded', () => {
     updateTotalCount();
     initCheckoutButton();
 });
+
+
