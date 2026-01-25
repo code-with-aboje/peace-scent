@@ -26,6 +26,18 @@ console.log("firebase initialized");
 const db = getDatabase(app);
 const auth = getAuth();
 
+// Getting dom elements
+const cartItemsDiv = document.getElementById("cartItemsDiv");
+let cartAmount = document.getElementById("cartAmount");
+let cart_count = document.getElementById("cart_count");
+const products_grid = document.getElementById("products-grid");
+const shipping = document.getElementById("shipping");
+const total = document.getElementById("total");
+
+// Setting public variables
+let shipping_price = 4000; // Default to Warri
+let cart_items = [];
+
 // Check auth state and load user data
 onAuthStateChanged(auth, (user) => {
     if (user) {
@@ -46,6 +58,9 @@ onAuthStateChanged(auth, (user) => {
         }).catch((error) => {
             console.error("Error fetching user data:", error);
         });
+        
+        // Initialize cart after user is authenticated
+        initializeCart();
     } else {
         // No user logged in, redirect to login
         console.log("No user logged in");
@@ -53,59 +68,14 @@ onAuthStateChanged(auth, (user) => {
     }
 });
 
-// Toggle mobile menu
-function toggleMenu() {
-    const navLinks = document.getElementById('navLinks');
-    navLinks.classList.toggle('active');
+// Initialize cart functionality
+function initializeCart() {
+    createProducts();
+    createShippingSelector();
+    loadCartFromStorage();
+    updateTotalCount();
+    initCheckoutButton();
 }
-
-// Close menu when clicking outside
-document.addEventListener('click', (e) => {
-    const nav = document.querySelector('nav');
-    const navLinks = document.getElementById('navLinks');
-    if (!nav.contains(e.target) && navLinks.classList.contains('active')) {
-        navLinks.classList.remove('active');
-    }
-});
-
-// Logout with Firebase Auth
-function handleLogout(e) {
-    e.preventDefault();
-    if (confirm('Are you sure you want to logout?')) {
-        signOut(auth).then(() => {
-            // Sign-out successful
-            console.log('User signed out');
-            alert('Logged out successfully!');
-            window.location.href = '../index.html';
-        }).catch((error) => {
-            // An error happened
-            console.error('Logout error:', error);
-            alert('Error logging out. Please try again.');
-        });
-    }
-}
-
-// Close menu when clicking on a link
-document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-        document.getElementById('navLinks').classList.remove('active');
-    });
-});
-
-// Make functions globally accessible
-window.toggleMenu = toggleMenu;
-window.handleLogout = handleLogout;
-// Getting dom elements
-const cartItemsDiv = document.getElementById("cartItemsDiv");
-let cartAmount = document.getElementById("cartAmount");
-let cart_count = document.getElementById("cart_count");
-const products_grid = document.getElementById("products-grid");
-const shipping = document.getElementById("shipping");
-const total = document.getElementById("total");
-
-// Setting public variables
-let shipping_price = 4000; // Default to Warri
-let cart_items = [];
 
 // Load cart from localStorage on page load
 function loadCartFromStorage() {
@@ -227,10 +197,19 @@ function updateShippingDisplay() {
 // Create products
 function createProducts() {
     const products = [
-        { id: 1, name: 'Black Orchid', brand: 'Tom Ford', price: 85000, image: '../Assets/pef1.png' },
-        { id: 2, name: 'Sauvage', brand: 'Dior', price: 75000, image: '../Assets/pef1.png' },
-        { id: 3, name: 'Bleu de Chanel', brand: 'Chanel', price: 80000, image: '../Assets/pef1.png' },
-        { id: 4, name: 'La Vie Est Belle', brand: 'Lancôme', price: 70000, image: '../Assets/pef1.png' }
+        { id: 1, name: 'Black Orchid', brand: 'Tom Ford', price: 7000, image: '../Assets/7k.jpeg' },
+        { id: 2, name: 'Sauvage', brand: 'Dior', price: 7000, image: '../Assets/7k(2).jpeg' },
+        { id: 3, name: 'Bleu de Chanel', brand: 'Chanel', price: 7000, image: '../Assets/7k(3).jpeg' },
+        { id: 4, name: 'La Vie Est Belle', brand: 'Lancôme', price: 25000, image: '../Assets/25k.jpeg' },
+        { id: 5, name: 'Midnight Essence', brand: 'Lancôme', price: 35000, image: '../Assets/35k.jpeg' },
+        { id: 6, name: 'Rose Garden', brand: 'Lancôme', price: 30000, image: '../Assets/30k.jpeg' },
+        { id: 7, name: 'Summer Breeze', brand: 'Lancôme', price: 6000, image: '../Assets/6k.jpeg' },
+        { id: 8, name: 'Ocean Mist', brand: 'Lancôme', price: 4000, image: '../Assets/4k.jpeg' },
+        { id: 9, name: 'Citrus Fresh', brand: 'Lancôme', price: 2000, image: '../Assets/2k.jpeg' },
+        { id: 10, name: 'Royal Oud', brand: 'Lancôme', price: 80000, image: '../Assets/80k.jpeg' },
+        { id: 11, name: 'Amber Nights', brand: 'Lancôme', price: 39000, image: '../Assets/39k.jpeg' },
+        { id: 12, name: 'Vanilla Dreams', brand: 'Lancôme', price: 8000, image: '../Assets/8k.jpeg' },
+        { id: 13, name: 'Velvet Touch', brand: 'Lancôme', price: 47000, image: '../Assets/47k.jpeg' }
     ];
 
     products.forEach(product => {
@@ -414,7 +393,7 @@ document.addEventListener('click', (e) => {
     }
 });
 
-// Logout handler
+// Logout handler with Firebase Auth
 function handleLogout(e) {
     e.preventDefault();
     if (confirm('Are you sure you want to logout?')) {
@@ -424,8 +403,17 @@ function handleLogout(e) {
             localStorage.removeItem('peacescent_cart');
             localStorage.removeItem('peacescent_location');
         }
-        alert('Logged out successfully!');
-        window.location.href = '../index.html';
+        
+        signOut(auth).then(() => {
+            // Sign-out successful
+            console.log('User signed out');
+            alert('Logged out successfully!');
+            window.location.href = '../index.html';
+        }).catch((error) => {
+            // An error happened
+            console.error('Logout error:', error);
+            alert('Error logging out. Please try again.');
+        });
     }
 }
 
@@ -448,7 +436,7 @@ function proceedToCheckout() {
     }
     
     // WhatsApp number (replace with your actual WhatsApp number)
-    const whatsappNumber = '2348012345678'; // Format: country code + number (no + or spaces)
+    const whatsappNumber = '2349117967019'; // Format: country code + number (no + or spaces)
     
     // Build the message
     let message = '🛍️ *NEW ORDER FROM PEACE-SCENT*\n\n';
@@ -497,14 +485,3 @@ function initCheckoutButton() {
         checkoutBtn.addEventListener('click', proceedToCheckout);
     }
 }
-
-// Initialize on page load
-document.addEventListener('DOMContentLoaded', () => {
-    createProducts();
-    createShippingSelector();
-    loadCartFromStorage();
-    updateTotalCount();
-    initCheckoutButton();
-});
-
-
