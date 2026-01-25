@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Account - PEACE-SCENT</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
     <header>
@@ -22,7 +23,7 @@
                 <li><a href="#" onclick="handleLogout(event)">Logout</a></li>
                 <li class="cart-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><title>Cart</title><g fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2"><path d="M5 7h13.79a2 2 0 0 1 1.99 2.199l-.6 6A2 2 0 0 1 18.19 17H8.64a2 2 0 0 1-1.962-1.608z"/><path stroke-linecap="round" d="m5 7l-.81-3.243A1 1 0 0 0 3.22 3H2m6 18h2m6 0h2"/></g></svg>
-                    <span class="cart-count">3</span>
+                    <span class="cart-count" id="cart_count"></span>
                 </li>
             </ul>
         </nav>
@@ -47,62 +48,21 @@
             </aside>
 
             <div class="cart-section">
-                <h2>Shopping Cart (3 items)</h2>
+                <h2>Shopping Cart (<span id="cartAmount"></span>)</h2>
                 <div id="cartContent">
-                    <div class="cart-items">
-                        <div class="cart-item">
-                            <div class="cart-item-image">
-                                <img src="https://via.placeholder.com/100x100/f8f8f8/666?text=Chanel" alt="Bleu de Chanel">
-                            </div>
-                            <div class="cart-item-details">
-                                <div class="cart-item-brand">Chanel</div>
-                                <div class="cart-item-name">Bleu de Chanel</div>
-                                <div class="cart-item-size">100ml | Eau de Parfum</div>
-                                <div class="quantity-controls">
-                                    <button class="quantity-btn">-</button>
-                                    <span class="quantity-display">1</span>
-                                    <button class="quantity-btn">+</button>
-                                </div>
-                            </div>
-                            <div class="cart-item-actions">
-                                <div class="cart-item-price">₦45,000</div>
-                                <button class="remove-item">Remove</button>
-                            </div>
-                        </div>
+                    <div class="cart-items" id="cartItemsDiv">
+                        <!-- CART ITEMS -->
 
-                        <div class="cart-item">
-                            <div class="cart-item-image">
-                                <img src="https://via.placeholder.com/100x100/f8f8f8/666?text=Dior" alt="Sauvage">
-                            </div>
-                            <div class="cart-item-details">
-                                <div class="cart-item-brand">Dior</div>
-                                <div class="cart-item-name">Sauvage</div>
-                                <div class="cart-item-size">100ml | Eau de Toilette</div>
-                                <div class="quantity-controls">
-                                    <button class="quantity-btn">-</button>
-                                    <span class="quantity-display">2</span>
-                                    <button class="quantity-btn">+</button>
-                                </div>
-                            </div>
-                            <div class="cart-item-actions">
-                                <div class="cart-item-price">₦84,000</div>
-                                <button class="remove-item">Remove</button>
-                            </div>
-                        </div>
+                       
                     </div>
-
                     <div class="cart-summary">
                         <div class="summary-row">
-                            <span>Subtotal:</span>
-                            <span>₦129,000</span>
-                        </div>
-                        <div class="summary-row">
                             <span>Shipping:</span>
-                            <span>₦2,000</span>
+                            <span id="shipping">₦2,000</span>
                         </div>
                         <div class="summary-row total">
                             <span>Total:</span>
-                            <span>₦131,000</span>
+                            <span id="total"></span>
                         </div>
                         <button class="checkout-btn">PROCEED TO CHECKOUT</button>
                     </div>
@@ -112,8 +72,9 @@
 
         <div class="products-section">
             <h2 class="section-title">Recommended For You</h2>
-            <div class="products-grid">
-                <div class="product-card">
+            <div class="products-grid" id="products-grid">
+
+                <!-- <div class="product-card" id="product-card">
                     <div class="product-image">
                         <img src="https://via.placeholder.com/280x350/f8f8f8/666?text=Tom+Ford" alt="Black Orchid">
                     </div>
@@ -126,55 +87,9 @@
                         </div>
                         <button class="add-to-cart">ADD TO CART</button>
                     </div>
-                </div>
+                </div> -->
 
-                <div class="product-card">
-                    <div class="discount-badge">-20%</div>
-                    <div class="product-image">
-                        <img src="https://via.placeholder.com/280x350/f8f8f8/666?text=Versace" alt="Eros">
-                    </div>
-                    <div class="product-info">
-                        <div class="product-brand">Versace</div>
-                        <h3 class="product-name">Eros</h3>
-                        <p class="product-size">100ml | Eau de Toilette</p>
-                        <div class="product-pricing">
-                            <span class="product-price">₦40,000</span>
-                            <span class="product-price-old">₦50,000</span>
-                        </div>
-                        <button class="add-to-cart">ADD TO CART</button>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <div class="discount-badge">-15%</div>
-                    <div class="product-image">
-                        <img src="https://via.placeholder.com/280x350/f8f8f8/666?text=Gucci" alt="Guilty">
-                    </div>
-                    <div class="product-info">
-                        <div class="product-brand">Gucci</div>
-                        <h3 class="product-name">Guilty</h3>
-                        <p class="product-size">100ml | Eau de Parfum</p>
-                        <div class="product-pricing">
-                            <span class="product-price">₦51,000</span>
-                            <span class="product-price-old">₦60,000</span>
-                        </div>
-                        <button class="add-to-cart">ADD TO CART</button>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="https://via.placeholder.com/280x350/f8f8f8/666?text=Prada" alt="L'Homme">
-                    </div>
-                    <div class="product-info">
-                        <div class="product-brand">Prada</div>
-                        <h3 class="product-name">L'Homme</h3>
-                        <p class="product-size">100ml | Eau de Toilette</p>
-                        <div class="product-pricing">
-                            <span class="product-price">₦58,000</span>
-                        </div>
-                        <button class="add-to-cart">ADD TO CART</button>
-                    </div>
+                <!-- EOF -->
                 </div>
             </div>
         </div>
@@ -217,6 +132,6 @@
             <p>&copy; 2026 PEACE-SCENT. All rights reserved.</p>
         </div>
     </footer>
-    <script type="module" src="index.js"></script>
+    <script type="module" src="./index.js"></script>
 </body>
 </html>
