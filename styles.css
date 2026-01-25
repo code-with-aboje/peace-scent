@@ -248,11 +248,7 @@ nav {
     letter-spacing: 0.5px;
 }
 
-.product-size {
-    font-size: 0.9rem;
-    color: #666;
-    margin-bottom: 1rem;
-}
+
 
 .product-pricing {
     display: flex;
@@ -265,6 +261,8 @@ nav {
     font-size: 1.5rem;
     font-weight: 600;
     letter-spacing: 1px;
+    margin-left: 12px;
+    
 }
 
 .product-price-old {
