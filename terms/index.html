@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms & Conditions - PEACE-SCENT</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background: #f8f8f8;
+        }
+
+        header {
+            background: #000;
+            color: white;
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            letter-spacing: 3px;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .menu-toggle svg {
+            width: 28px;
+            height: 28px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            letter-spacing: 1px;
+        }
+
+        .nav-links a:hover {
+            color: #ccc;
+        }
+
+        .page-hero {
+            background: linear-gradient(135deg, #000 0%, #333 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .page-hero h1 {
+            font-size: 3rem;
+            font-weight: 300;
+            letter-spacing: 5px;
+            margin-bottom: 0.5rem;
+        }
+
+        .page-hero p {
+            font-size: 1rem;
+            letter-spacing: 1px;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            background: white;
+        }
+
+        .content-section {
+            margin-bottom: 3rem;
+        }
+
+        .content-section h2 {
+            font-size: 1.8rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            color: #000;
+            border-bottom: 2px solid #000;
+            padding-bottom: 0.5rem;
+        }
+
+        .content-section h3 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: #333;
+        }
+
+        .content-section p {
+            margin-bottom: 1rem;
+            color: #555;
+        }
+
+        .content-section ul, .content-section ol {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .content-section li {
+            margin-bottom: 0.5rem;
+            color: #555;
+        }
+
+        .highlight {
+            background: #f8f8f8;
+            padding: 1.5rem;
+            border-left: 4px solid #000;
+            margin: 1.5rem 0;
+        }
+
+        .warning {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .last-updated {
+            text-align: center;
+            color: #999;
+            font-style: italic;
+            margin-bottom: 2rem;
+        }
+
+        footer {
+            background: #000;
+            color: white;
+            padding: 3rem 2rem 1.5rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #333;
+            color: #999;
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: #000;
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 2rem;
+                gap: 1.5rem;
+                transition: left 0.3s ease;
+                border-top: 1px solid #333;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links li {
+                width: 100%;
+                border-bottom: 1px solid #333;
+                padding-bottom: 1rem;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+            }
+
+            .page-hero h1 {
+                font-size: 2rem;
+            }
+
+            .container {
+                padding: 2rem 1.5rem;
+            }
+
+            .content-section h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">PEACE-SCENT</div>
+            <button class="menu-toggle" onclick="toggleMenu()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 12h18M3 6h18M3 18h18"/>
+                </svg>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../about/index.html">About</a></li>
+                <li><a href="../service/index.html">Services</a></li>
+                <li><a href="../contact/index.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="page-hero">
+        <h1>TERMS & CONDITIONS</h1>
+        <p>Please read these terms carefully before using our services</p>
+    </section>
+
+    <div class="container">
+        <p class="last-updated">Last Updated: January 27, 2026</p>
+
+        <div class="warning">
+            <p><strong>Important:</strong> By accessing and using the PEACE-SCENT website and services, you agree to be bound by these Terms and Conditions. If you do not agree with any part of these terms, please do not use our services.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>1. Definitions</h2>
+            <ul>
+                <li><strong>"We," "Us," "Our"</strong> refers to PEACE-SCENT</li>
+                <li><strong>"You," "Your"</strong> refers to the user or customer</li>
+                <li><strong>"Website"</strong> refers to www.peacescent.com and all associated pages</li>
+                <li><strong>"Services"</strong> refers to all products, services, and features offered by PEACE-SCENT</li>
+                <li><strong>"Products"</strong> refers to fragrances, perfumes, and related items sold on our platform</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>2. Acceptance of Terms</h2>
+            <p>By creating an account, making a purchase, or using our website in any way, you acknowledge that you have read, understood, and agree to be bound by these Terms and Conditions, as well as our Privacy Policy.</p>
+            <p>We reserve the right to modify these terms at any time. Continued use of our services after changes constitutes acceptance of the modified terms.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>3. Eligibility</h2>
+            <p>To use our services, you must:</p>
+            <ul>
+                <li>Be at least 18 years of age</li>
+                <li>Have the legal capacity to enter into binding contracts</li>
+                <li>Provide accurate and complete information during registration</li>
+                <li>Not be prohibited from using our services under Nigerian or international law</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>4. Account Registration</h2>
+            <h3>Account Security</h3>
+            <p>When you create an account, you agree to:</p>
+            <ul>
+                <li>Provide accurate, current, and complete information</li>
+                <li>Maintain and update your information to keep it accurate</li>
+                <li>Keep your password confidential and secure</li>
+                <li>Notify us immediately of any unauthorized account access</li>
+                <li>Accept responsibility for all activities under your account</li>
+            </ul>
+
+            <h3>Account Termination</h3>
+            <p>We reserve the right to suspend or terminate your account if you:</p>
+            <ul>
+                <li>Violate these Terms and Conditions</li>
+                <li>Engage in fraudulent activity</li>
+                <li>Provide false or misleading information</li>
+                <li>Use our services for illegal purposes</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>5. Products and Pricing</h2>
+            <h3>Product Information</h3>
+            <ul>
+                <li>All products are 100% authentic luxury fragrances</li>
+                <li>Product descriptions and images are for illustrative purposes</li>
+                <li>We strive for accuracy but do not guarantee that descriptions are error-free</li>
+                <li>Colors and appearance may vary slightly from images</li>
+            </ul>
+
+            <h3>Pricing</h3>
+            <ul>
+                <li>All prices are displayed in Nigerian Naira (₦)</li>
+                <li>Prices are subject to change without notice</li>
+                <li>Prices displayed at the time of order placement apply to your purchase</li>
+                <li>We reserve the right to cancel orders placed at incorrect prices</li>
+            </ul>
+
+            <h3>Product Availability</h3>
+            <p>Product availability is subject to stock levels. If a product becomes unavailable after your order, we will:</p>
+            <ul>
+                <li>Notify you immediately</li>
+                <li>Offer a suitable alternative or full refund</li>
+                <li>Process the refund within 7-14 business days</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>6. Orders and Payment</h2>
+            <h3>Order Process</h3>
+            <ol>
+                <li>Add products to your cart</li>
+                <li>Proceed to checkout and provide delivery information</li>
+                <li>Review and confirm your order</li>
+                <li>Make payment through our secure payment system</li>
+                <li>Receive order confirmation via email</li>
+            </ol>
+
+            <h3>Payment Terms</h3>
+            <ul>
+                <li>Payment must be made in full before order processing</li>
+                <li>We accept various payment methods as indicated at checkout</li>
+                <li>All transactions are processed through secure, encrypted payment gateways</li>
+                <li>We do not store your complete payment card details</li>
+            </ul>
+
+            <h3>Order Confirmation</h3>
+            <p>Receipt of an order confirmation does not guarantee acceptance. We reserve the right to:</p>
+            <ul>
+                <li>Accept or reject orders at our discretion</li>
+                <li>Limit quantities per customer</li>
+                <li>Cancel orders due to pricing errors or product unavailability</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>7. Shipping and Delivery</h2>
+            <h3>Shipping Areas</h3>
+            <ul>
+                <li><strong>Within Warri:</strong> ₦4,000 delivery fee</li>
+                <li><strong>Outside Warri:</strong> ₦5,000 delivery fee</li>
+                <li>Delivery available across Nigeria</li>
+            </ul>
+
+            <h3>Delivery Timeframes</h3>
+            <ul>
+                <li>Orders are processed within 1-2 business days</li>
+                <li>Delivery typically takes 3-7 business days depending on location</li>
+                <li>Delays may occur due to unforeseen circumstances</li>
+            </ul>
+
+            <h3>Delivery Requirements</h3>
+            <ul>
+                <li>You must provide accurate delivery address</li>
+                <li>Someone must be available to receive the package</li>
+                <li>Photo ID may be required for verification</li>
+                <li>Failed delivery attempts may incur additional charges</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>8. Returns and Refunds</h2>
+            <h3>Return Policy</h3>
+            <p>Due to the nature of fragrances and hygiene considerations:</p>
+            <ul>
+                <li>Returns are only accepted for damaged or defective products</li>
+                <li>Products must be unopened and in original packaging</li>
+                <li>Returns must be initiated within 7 days of delivery</li>
+                <li>Proof of purchase is required</li>
+            </ul>
+
+            <h3>Refund Process</h3>
+            <p>If your return is approved:</p>
+            <ul>
+                <li>We will inspect the returned product</li>
+                <li>Refunds are processed within 14 business days</li>
+                <li>Refunds are issued to the original payment method</li>
+                <li>Shipping costs are non-refundable unless the error was ours</li>
+            </ul>
+
+            <h3>Damaged Products</h3>
+            <p>If you receive a damaged product:</p>
+            <ul>
+                <li>Contact us within 48 hours with photos</li>
+                <li>We will arrange for return or replacement</li>
+                <li>Return shipping costs will be covered by us</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>9. Intellectual Property</h2>
+            <p>All content on our website, including but not limited to:</p>
+            <ul>
+                <li>Text, graphics, logos, and images</li>
+                <li>Website design and layout</li>
+                <li>Product descriptions and photographs</li>
+                <li>Software and code</li>
+            </ul>
+            <p>...is the property of PEACE-SCENT and protected by copyright and intellectual property laws. You may not:</p>
+            <ul>
+                <li>Copy, reproduce, or distribute our content without permission</li>
+                <li>Use our brand name or logo without authorization</li>
+                <li>Create derivative works based on our content</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>10. Prohibited Uses</h2>
+            <p>You agree not to use our website or services to:</p>
+            <ul>
+                <li>Violate any local, national, or international laws</li>
+                <li>Transmit harmful or malicious code</li>
+                <li>Impersonate any person or entity</li>
+                <li>Harass, abuse, or harm others</li>
+                <li>Collect user information without consent</li>
+                <li>Interfere with website functionality</li>
+                <li>Engage in fraudulent activities</li>
+                <li>Resell products for commercial purposes without authorization</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>11. Limitation of Liability</h2>
+            <p>To the fullest extent permitted by law:</p>
+            <ul>
+                <li>PEACE-SCENT shall not be liable for indirect, incidental, or consequential damages</li>
+                <li>Our total liability shall not exceed the amount paid for the product in question</li>
+                <li>We are not responsible for delays or failures due to circumstances beyond our control</li>
+                <li>We do not guarantee uninterrupted or error-free service</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>12. Indemnification</h2>
+            <p>You agree to indemnify and hold PEACE-SCENT harmless from any claims, damages, or expenses arising from:</p>
+            <ul>
+                <li>Your violation of these Terms and Conditions</li>
+                <li>Your use of our products or services</li>
+                <li>Your violation of any third-party rights</li>
+                <li>Your fraudulent or illegal activities</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>13. Disclaimers</h2>
+            <div class="warning">
+                <p><strong>Products are provided "as is":</strong></p>
+                <ul>
+                    <li>We make no warranties regarding product suitability</li>
+                    <li>Fragrance preferences are subjective and vary by individual</li>
+                    <li>We are not responsible for allergic reactions or sensitivities</li>
+                    <li>Always test products for personal compatibility</li>
+                    <li>Consult a doctor if you have concerns about product use</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>14. Governing Law</h2>
+            <p>These Terms and Conditions are governed by the laws of the Federal Republic of Nigeria. Any disputes shall be resolved in the courts of Nigeria.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>15. Dispute Resolution</h2>
+            <p>In the event of a dispute:</p>
+            <ol>
+                <li>Contact our customer service team first</li>
+                <li>We will attempt to resolve the issue amicably</li>
+                <li>If unresolved, disputes may be escalated to mediation</li>
+                <li>Legal action may be taken as a last resort</li>
+            </ol>
+        </div>
+
+        <div class="content-section">
+            <h2>16. Severability</h2>
+            <p>If any provision of these terms is found to be unenforceable or invalid, that provision shall be modified to the minimum extent necessary, and all other provisions shall remain in full force and effect.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>17. Waiver</h2>
+            <p>Our failure to enforce any right or provision of these terms shall not be considered a waiver of those rights. The waiver of any such right or provision will be effective only if in writing and signed by an authorized representative.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>18. Contact Information</h2>
+            <p>For questions or concerns regarding these Terms and Conditions, please contact us:</p>
+            <div class="highlight">
+                <p><strong>PEACE-SCENT</strong></p>
+                <p>Email: <a href="mailto:support@peacescent.com">support@peacescent.com</a></p>
+                <p>Phone: <a href="tel:+2349117967019">+234 911 796 7019</a></p>
+                <p>WhatsApp: <a href="https://wa.me/2349117967019">+234 911 796 7019</a></p>
+                <p>Location: Port Harcourt, Rivers State, Nigeria</p>
+                <p>Business Hours: Monday-Friday (9:00 AM - 7:00 PM)</p>
+            </div>
+        </div>
+
+        <div class="highlight">
+            <p><strong>Acknowledgment:</strong> By using our website and services, you acknowledge that you have read these Terms and Conditions, understand them, and agree to be bound by them.</p>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>PEACE-SCENT</h3>
+                <p>Your destination for luxury fragrances</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../about/index.html">About</a></li>
+                    <li><a href="../service/index.html">Services</a></li>
+                    <li><a href="../contact/index.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="./index.html">Privacy Policy</a></li>
+                    <li><a href="./index.html">Terms & Conditions</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 PEACE-SCENT. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navLinks').classList.remove('active');
+            });
+        });
+
+        document.addEventListener('click', (e) => {
+            const nav = document.querySelector('nav');
+            const navLinks = document.getElementById('navLinks');
+            if (!nav.contains(e.target) && navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -197,19 +197,19 @@ function updateShippingDisplay() {
 // Create products
 function createProducts() {
     const products = [
-        { id: 1, name: 'Black Orchid', brand: 'Tom Ford', price: 7000, image: '../Assets/7k.jpeg' },
-        { id: 2, name: 'Sauvage', brand: 'Dior', price: 7000, image: '../Assets/7k(2).jpeg' },
+        { id: 1, name: 'Valentino & You parfume', brand: 'Tom Ford', price: 7000, image: '../Assets/7k.jpeg' },
+        { id: 2, name: 'Lamsat Hair parfumes', brand: 'Dior', price: 7000, image: '../Assets/7k(2).jpeg' },
         { id: 3, name: 'Bleu de Chanel', brand: 'Chanel', price: 7000, image: '../Assets/7k(3).jpeg' },
         { id: 4, name: 'La Vie Est Belle', brand: 'Lancôme', price: 25000, image: '../Assets/25k.jpeg' },
-        { id: 5, name: 'Midnight Essence', brand: 'Lancôme', price: 35000, image: '../Assets/35k.jpeg' },
+        { id: 5, name: 'Asad & Hyaati', brand: 'Lancôme', price: 35000, image: '../Assets/35k.jpeg' },
         { id: 6, name: 'Rose Garden', brand: 'Lancôme', price: 30000, image: '../Assets/30k.jpeg' },
         { id: 7, name: 'Summer Breeze', brand: 'Lancôme', price: 6000, image: '../Assets/6k.jpeg' },
         { id: 8, name: 'Ocean Mist', brand: 'Lancôme', price: 4000, image: '../Assets/4k.jpeg' },
         { id: 9, name: 'Citrus Fresh', brand: 'Lancôme', price: 2000, image: '../Assets/2k.jpeg' },
         { id: 10, name: 'Royal Oud', brand: 'Lancôme', price: 80000, image: '../Assets/80k.jpeg' },
         { id: 11, name: 'Amber Nights', brand: 'Lancôme', price: 39000, image: '../Assets/39k.jpeg' },
-        { id: 12, name: 'Vanilla Dreams', brand: 'Lancôme', price: 8000, image: '../Assets/8k.jpeg' },
-        { id: 13, name: 'Velvet Touch', brand: 'Lancôme', price: 47000, image: '../Assets/47k.jpeg' }
+        { id: 12, name: 'Oud Touch', brand: 'Lancôme', price: 8000, image: '../Assets/8k.jpeg' },
+        { id: 13, name: 'Asad & Hyaati', brand: 'Lancôme', price: 47000, image: '../Assets/47k.jpeg' }
     ];
 
     products.forEach(product => {
