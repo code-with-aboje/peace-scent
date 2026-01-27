@@ -485,3 +485,6 @@ function initCheckoutButton() {
         checkoutBtn.addEventListener('click', proceedToCheckout);
     }
 }
+
+
+
