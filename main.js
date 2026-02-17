@@ -236,7 +236,7 @@ function handleSignup(e) {
 // Forgot Password Handler
 function handleForgotPassword(e) {
     e.preventDefault();
-    clearFormErrors();
+    clearFormErrors(); 
 
     const email = document.getElementById('resetEmail').value;
 
@@ -273,36 +273,33 @@ document.getElementById('authModal').addEventListener('click', (e) => {
 });
 
 // Product Array - Easy to manage and add new products
-const products = [
-    { id: 1, name: 'Black Orchid', brand: 'Tom Ford', price: 7000, image: '../Assets/7k.jpeg' },
-        { id: 2, name: 'Sauvage', brand: 'Dior', price: 7000, image: '../Assets/7k(2).jpeg' },
-        { id: 3, name: 'Bleu de Chanel', brand: 'Chanel', price: 7000, image: '../Assets/7k(3).jpeg' },
-        { id: 4, name: 'La Vie Est Belle', brand: 'Lancôme', price: 25000, image: '../Assets/25k.jpeg' },
-        { id: 5, name: 'Midnight Essence', brand: 'Lancôme', price: 35000, image: '../Assets/35k.jpeg' },
-        { id: 6, name: 'Rose Garden', brand: 'Lancôme', price: 30000, image: '../Assets/30k.jpeg' },
-        { id: 7, name: 'Summer Breeze', brand: 'Lancôme', price: 6000, image: '../Assets/6k.jpeg' },
-        { id: 8, name: 'Ocean Mist', brand: 'Lancôme', price: 4000, image: '../Assets/4k.jpeg' },
-        { id: 9, name: 'Citrus Fresh', brand: 'Lancôme', price: 2000, image: '../Assets/2k.jpeg' },
-        { id: 10, name: 'Royal Oud', brand: 'Lancôme', price: 80000, image: '../Assets/80k.jpeg' },
-        { id: 11, name: 'Amber Nights', brand: 'Lancôme', price: 39000, image: '../Assets/39k.jpeg' },
-        { id: 12, name: 'Vanilla Dreams', brand: 'Lancôme', price: 8000, image: '../Assets/8k.jpeg' },
-        { id: 13, name: 'Velvet Touch', brand: 'Lancôme', price: 47000, image: '../Assets/47k.jpeg' }
-];
+// Create products
+
+    const products = [
+        { id: 1, name: 'Lattafa Badee Ai oud',  price: 40000, image: '../Assets/40k.jpeg' },
+        { id: 2, name: 'Red Jeopardy', price: 12000, image: '../Assets/12k.jpeg' },
+        { id: 3, name: 'Lasgidi(Vanilla crush) & chocolate',price: 2800, image: '../Assets/28k.jpeg' },
+        { id: 4, name: 'Quisa', price: 6000, image: '../Assets/6k(2).jpeg' },
+        { id: 5, name: 'Opulent Gold elixir(Hyaati) & super cedar', price: 25000, image: '../Assets/35k.jpeg' },
+        { id: 6, name: 'Lattafa Asad & Royal hyaati', price: 30000, image: '../Assets/35k(2).jpeg' },
+        { id: 7, name: 'Valentino and YOU parfume', price: 6000, image: '../Assets/6k.jpeg' },
+        { id: 8, name: 'Lattafa Yara & lattafa Asad', price: 4000, image: '../Assets/45k.jpeg' },
+        { id: 9, name: 'Lasmat Harir parfumes', price: 22000, image: '../Assets/22k.jpeg' },
+        { id: 10, name: 'Pestow Gold orchid, Genie & Monsieur parfume', price: 20000, image: '../Assets/20k(2).jpeg' },
+
+        
+    ];
 
 const newArrivals = [
-    { id: 1, name: 'Black Orchid', brand: 'Tom Ford', price: 7000, image: '../Assets/7k.jpeg' },
-    { id: 2, name: 'Sauvage', brand: 'Dior', price: 7000, image: '../Assets/7k(2).jpeg' },
-    { id: 3, name: 'Bleu de Chanel', brand: 'Chanel', price: 7000, image: '../Assets/7k(3).jpeg' },
-    { id: 4, name: 'La Vie Est Belle', brand: 'Lancôme', price: 25000, image: '../Assets/25k.jpeg' },
-    { id: 5, name: 'Midnight Essence', brand: 'Lancôme', price: 35000, image: '../Assets/35k.jpeg' },
-    { id: 6, name: 'Rose Garden', brand: 'Lancôme', price: 30000, image: '../Assets/30k.jpeg' },
-    { id: 7, name: 'Summer Breeze', brand: 'Lancôme', price: 6000, image: '../Assets/6k.jpeg' },
-    { id: 8, name: 'Ocean Mist', brand: 'Lancôme', price: 4000, image: '../Assets/4k.jpeg' },
-    { id: 9, name: 'Citrus Fresh', brand: 'Lancôme', price: 2000, image: '../Assets/2k.jpeg' },
-    { id: 10, name: 'Royal Oud', brand: 'Lancôme', price: 80000, image: '../Assets/80k.jpeg' },
-    { id: 11, name: 'Amber Nights', brand: 'Lancôme', price: 39000, image: '../Assets/39k.jpeg' },
-    { id: 12, name: 'Vanilla Dreams', brand: 'Lancôme', price: 8000, image: '../Assets/8k.jpeg' },
-    { id: 13, name: 'Velvet Touch', brand: 'Lancôme', price: 47000, image: '../Assets/47k.jpeg' }
+    // new products
+
+        { id: 11, name: 'Stronger with YOU', price: 9000, image: '../Assets/9k.jpeg' },
+        { id: 12, name: 'Valentino UOMO ', price: 6000, image: '../Assets/6k(3).jpeg' },
+        { id: 13, name: 'Lattafa Asad', price: 35000, image: '../Assets/35k(3).jpeg' },  
+        
+        { id: 14, name: 'Royal hyaati', price: 25000, image: '../Assets/25k(3).jpeg' },
+
+        { id: 15, name: 'Lattafa Yara', price: 35000, image: '../Assets/45k(2).jpeg' }
 ];
 
 // Global auth variable
@@ -321,9 +318,9 @@ function createProductCard(product) {
                 <img src="${product.image}" alt="${product.name}">
             </div>
             <div class="product-info">
-                <div class="product-brand">${product.brand}</div>
+                
                 <h3 class="product-name">${product.name}</h3>
-                <p class="product-size">${product.size}</p>
+                <p class="product-size"></p>
                 <div class="product-pricing">
                     <span class="product-price">₦${product.price.toLocaleString()}</span>
                     ${oldPriceHTML}
